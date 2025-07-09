@@ -2,7 +2,7 @@
 GDetecting deceptive communication in the strategy game Diplomacy using graph neural networks, transformer-based attention, and game-theoretic modeling.
 .
 
-📌 Introduction
+## 📌 Introduction
 Diplomacy is a negotiation-heavy board game set in pre-WWI Europe, where players represent major powers and form or break alliances to win territorial control. The game is unique in that there are no dice or cards—only dialogue, making deception a key mechanic.
 
 This project tackles deception detection: determining whether a player message is a lie. The task is challenging due to:
@@ -12,11 +12,11 @@ Only ~5% of messages being deceptive
 Subtle and strategic nature of lies
 
 High dependence on historical and social context
-
+## Models
 We use the QANTA Diplomacy Deception Dataset, annotated with ground-truth intent labels from the original sender, to train and evaluate two novel models.
 We propose two complementary deep learning models that outperform prior baselines:
 
-1. LieDetectorGAT (Graph Attention Network)
+### 1. LieDetectorGAT (Graph Attention Network)
 Models each Diplomacy game as a directed interaction graph
 
 Players are nodes, messages are edges
@@ -31,7 +31,7 @@ Game metadata (5D)
 
 Uses GATv2Conv to propagate contextualized deception signals across the graph
 
-2. HiS-Attention (Historical-Structured Attention)
+### 2. HiS-Attention (Historical-Structured Attention)
 A multimodal Transformer that fuses:
 
 Current message (BERT)
@@ -55,8 +55,9 @@ Optional dialogue history
 Due to severe class imbalance (~5%), we apply class weighting and specialized architecture design.
 
 
-Model Architectures
-LieDetectorGAT
+## Model Architectures
+
+### LieDetectorGAT
 text
 Copy
 Edit
@@ -76,7 +77,7 @@ Batch size: 1 game
 
 Library: PyTorch Geometric
 
-HiS-Attention
+### HiS-Attention
 text
 Copy
 Edit
@@ -98,7 +99,7 @@ Batch size: 16
 
 Scheduler + Gradient Clipping
 
-📊Results
+## 📊Results
 | Metric     | HiS-Attention | LieDetectorGAT |
 | ---------- | ------------- | -------------- |
 | Accuracy   | Higher        | Slightly Lower |
